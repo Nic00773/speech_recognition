@@ -1,0 +1,69 @@
+body {
+  background-color: black;
+}
+
+#button {
+  text-align: center;
+  background-color: #be3f3d;
+  margin-top: 10px;
+  margin-left: 52.5px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50% 50%;
+  cursor: pointer;
+  transition: all 300ms;
+}
+
+#button.recording {
+  border-radius: 2px 2px;
+  background-color: #ddd;
+  transition: all 300ms;
+}
+
+#menu {
+  position: fixed;
+  height: 30px;
+  width: 30px;
+  top: 10px;
+  right: 10px;
+  color: #ddd;
+  cursor: pointer;
+}
+
+#cmds {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  height: 250px;
+  width: 100vw;
+}
+
+#cmds .cmd {
+  position: relative;
+  height: 50px;
+  width: 100vw;
+  font-family: monospace;
+  font-size: 25px;
+  line-height: 50px;
+  text-align: center;
+  color: white;
+}
+
+#cmds #add {
+  background-color: #96c249;
+  vertical-align: middle;
+  font-family: monospace;
+  font-size: 25px;
+  line-height: 50px;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+}
+
+#cmds .cmd:nth-child(2n+1) {
+  background-color: #333;
+}
+
+#cmds .cmd:nth-child(2n) {
+  background-color: #222;
+}
