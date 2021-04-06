@@ -3,13 +3,14 @@
 #include <stdlib.h>
 #include <complex.h>
 #include <string.h>
+#include <unistd.h>
 #include "gnuplot.h"
 #include "mfcc.h"
 #include "../NArr/src/narr.h"
 #include "dtw.h"
 
 #define DATAS_LEN 7
-#define VOC_LEN   4
+#define VOC_LEN   2
 
 double ** do_mfcc (char * file_str) {
   SF_INFO file_info;
@@ -29,16 +30,16 @@ int main (int argc, char * argv[]) {
     printf("Usage:\n%s file.wav\n", argv[0]);
     return 1;
   }
-
+  
   // LEARNING
   char * datas[]      = {"1","2","3","4","5","6","7"};
-  char * vocabulary[10] = {"OUI","MARWAN","NON","OUVRIR"};
+  char * vocabulary[] = {"OUI","NON"};
 
   double **** mfccs   = new_NArr(sizeof(double***),VOC_LEN);
   for (int i=0; i < VOC_LEN; i++) {
     mfccs[i] = new_NArr(sizeof(double**),DATAS_LEN);
   }
-
+  
   for (int i = 0; i < VOC_LEN; i++) {
     printf("Learning word \"%s\" ....\n\n",vocabulary[i]);
     for (int j = 0; j < DATAS_LEN; j++) {
@@ -49,6 +50,8 @@ int main (int argc, char * argv[]) {
       strcat(path, datas[j]);
       strcat(path, ".wav");
       printf("Computing mfcc for %s...\n", path);
+      int x = random() %100;
+      usleep(x);
       mfccs[i][j] = do_mfcc(path);
     }
   }
