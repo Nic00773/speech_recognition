@@ -10,7 +10,7 @@
 #include "dtw.h"
 
 #define DATAS_LEN 7
-#define VOC_LEN   2
+#define VOC_LEN   3
 
 double ** do_mfcc (char * file_str) {
   SF_INFO file_info;
@@ -33,7 +33,7 @@ int main (int argc, char * argv[]) {
   
   // LEARNING
   char * datas[]      = {"1","2","3","4","5","6","7"};
-  char * vocabulary[] = {"OUI","NON"};
+  char * vocabulary[] = {"OUI","NON","OUVRIR"};
 
   double **** mfccs   = new_NArr(sizeof(double***),VOC_LEN);
   for (int i=0; i < VOC_LEN; i++) {
@@ -49,19 +49,19 @@ int main (int argc, char * argv[]) {
       strcat(path, "/");
       strcat(path, datas[j]);
       strcat(path, ".wav");
-      printf("Computing mfcc for %s...\n", path);
+      printf("Computing for %s...\n", path);
       int x = random() %100;
       usleep(x);
       mfccs[i][j] = do_mfcc(path);
     }
   }
   printf("\n\n");
-  printf("Computing mfcc for %s...\n", argv[1]);
+  printf("Computing for %s...\n", argv[1]);
   double ** mfcc_file = do_mfcc(argv[1]);
 
-  printf("\n\n#################################################\n\n");
+  printf("\n\n-------------------------------------------------\n\n");
 
-  printf("Comparing input with dictionary via DTW....\n\n");
+  printf("Comparing input with dictionary ....\n\n");
   double * result = new_NArr(sizeof(double), VOC_LEN);
 
   for (int i=0; i < VOC_LEN; i++) {

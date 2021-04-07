@@ -8,6 +8,7 @@ clean:
 	rm -f  pretreatment_demo
 	rm -rf *.dSYM
 	rm -f  *.png
+	rm -f recognize
 
 debug: CCFLAGS += -g
 debug: clean default
@@ -34,3 +35,4 @@ distance: ./src/dtw.o ./src/narr.o ./src/distance.c
 
 ./src/dtw.o: ./src/dtw.c
 	$(CCFLAGS) -o $@ -c $<
+

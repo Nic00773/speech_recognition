@@ -87,8 +87,12 @@ void mel_frame(struct MFCC * mfcc, int fft_size, int samplerate) {
       mfcc->mel[i] = new_NArr(sizeof(double), mfcc->mellength[i]);
       fsample = 2595*log10(freq*j/700 + 1);
 
-      if ((dphi*i <= fsample) && (fsample < dphi*(i+1))) temp[j] = (fsample-dphi*i)/(dphi*(i+1)-dphi*i);
-      if ((dphi*(i+1) <= fsample) && (fsample < dphi*(i+2))) temp[j] = (fsample-dphi*(i+2))/(dphi*(i+1)-dphi*(i+2));
+      if ((dphi*i <= fsample) && (fsample < dphi*(i+1))) {
+        temp[j] = (fsample-dphi*i)/(dphi*(i+1)-dphi*i);
+      }
+      if ((dphi*(i+1) <= fsample) && (fsample < dphi*(i+2))){
+       temp[j] = (fsample-dphi*(i+2))/(dphi*(i+1)-dphi*(i+2));
+      }
       if ((temp[j] != 0) && (mfcc->melstart[i] > j)) mfcc->melstart[i] = j;
       if (temp[j] != 0) mfcc->mellength[i]++;
     }
@@ -171,8 +175,8 @@ double * compute_mfcc(struct MFCC * mfcc, complex double * FFT, int fft_size) {
   double * value = new_NArr(sizeof(double),fft_size*2);
 
   for (int i = 0; i < fft_size; i++) {
-    value[i]          = fabs( creal(FFT[i]) + creal(FFT[fft_size - i - 1]) - cimag(FFT[i]) - cimag(FFT[fft_size - i - 1]) ) / 2;
-    value[i+fft_size] = fabs( creal(FFT[i]) + cimag(FFT[i]) + cimag(FFT[fft_size - i - 1]) - creal(FFT[fft_size - i - 1]) ) / 2;
+    value[i]=fabs(creal(FFT[i])+creal(FFT[fft_size-i-1])-cimag(FFT[i])-cimag(FFT[fft_size-i-1]))/2;
+    value[i+fft_size]=fabs(creal(FFT[i])+cimag(FFT[i])+cimag(FFT[fft_size-i-1])-creal(FFT[fft_size-i-1]))/2;
   }
 
   for (int i=0; i<fft_size/2; i++) {
