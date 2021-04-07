@@ -21,7 +21,7 @@ void filter(double * signal) {
 
 double ** frame (double * signal, int N, int M) {
   int n = NArr_len(signal);
-  int num_blocks = n / N;
+  //int num_blocks = n / N;
 
   int maxblockstart = n - N;
   int lastblockstart = maxblockstart - (maxblockstart % M);

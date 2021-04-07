@@ -21,7 +21,7 @@ double ** do_mfcc (char * file_str) {
   double * samples = new_NArr(sizeof(double),nb_samples);
 
   sf_read_double(file, samples, nb_samples);
-  return mfcc(samples,file_info.samplerate);
+  return mfcc(samples,samplerate);
 }
 
 int main (int argc, char * argv[]) {
