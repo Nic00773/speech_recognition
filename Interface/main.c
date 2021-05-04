@@ -4,30 +4,12 @@
 typedef struct UserInterface
 {
     GtkWindow* window; 
-    GtkButton* Oui;
-    GtkButton* Non;
-    GtkButton* Strange_no;
-    GtkButton* Ouvrir;
+    GtkButton* Choisir;
 }UserInterface;
 
-void oui()
+void choisir()
 {
-    system("open oui.wav");
-}
-
-void non()
-{
-    system("open non.wav");
-}
-
-void strange_no()
-{
-    system("open strange_no.wav");
-}
-
-void ouvrir()
-{
-    system("open ouvrir.wav");
+    system("open ~/Documents/ProjetS4");
 }
 
 int main()
@@ -44,17 +26,21 @@ int main()
     }
 
     GtkWindow* window = GTK_WINDOW(gtk_builder_get_object(builder, "org.gtk.duel"));
-    GtkButton* Oui = GTK_BUTTON(gtk_builder_get_object(builder, "Oui"));
+    GtkButton* Choisir = GTK_BUTTON(gtk_builder_get_object(builder, "Choisir"));
+    /*
     GtkButton* Non = GTK_BUTTON(gtk_builder_get_object(builder, "Non"));
     GtkButton* Strange_no = GTK_BUTTON(gtk_builder_get_object(builder, "Strange_no"));
     GtkButton* Ouvrir = GTK_BUTTON(gtk_builder_get_object(builder, "Ouvrir"));
+    */
 
 
     g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
-    g_signal_connect(Oui, "clicked", G_CALLBACK(oui), NULL);
+    g_signal_connect(Choisir, "clicked", G_CALLBACK(choisir), NULL);
+    /*
     g_signal_connect(Non, "clicked", G_CALLBACK(non), NULL);
     g_signal_connect(Strange_no, "clicked", G_CALLBACK(strange_no), NULL);
     g_signal_connect(Ouvrir, "clicked", G_CALLBACK(ouvrir), NULL);
+    */
 
     gtk_main();
 

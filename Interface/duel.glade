@@ -25,8 +25,8 @@
             <property name="row_spacing">5</property>
             <property name="column_homogeneous">True</property>
             <child>
-              <object class="GtkButton" id="Oui">
-                <property name="label" translatable="yes">Oui</property>
+              <object class="GtkButton" id="Choisir">
+                <property name="label" translatable="yes">Choisir</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -43,7 +43,7 @@
             <child>
               <object class="GtkButton" id="Non">
                 <property name="label" translatable="yes">Non</property>
-                <property name="visible">True</property>
+                <property name="visible">False</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="tooltip_text" translatable="yes">Stop the game</property>
@@ -59,7 +59,7 @@
             <child>
               <object class="GtkButton" id="Strange_no">
                 <property name="label" translatable="yes">Strange_no</property>
-                <property name="visible">True</property>
+                <property name="visible">False</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="tooltip_text" translatable="yes">Score of the player 1</property>
@@ -102,7 +102,7 @@
             <child>
               <object class="GtkButton" id="Ouvrir">
                 <property name="label" translatable="yes">Ouvrir</property>
-                <property name="visible">True</property>
+                <property name="visible">False</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="tooltip_text" translatable="yes">training</property>
