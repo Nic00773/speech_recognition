@@ -10,7 +10,7 @@
 #include "dtw.h"
 
 #define DATAS_LEN 7
-#define VOC_LEN   3
+#define VOC_LEN   4
 
 double ** do_mfcc (char * file_str) {
   SF_INFO file_info;
@@ -30,10 +30,12 @@ int main (int argc, char * argv[]) {
     printf("Usage:\n%s file.wav\n", argv[0]);
     return 1;
   }
-  
+  /*execlp("gnome-sound-recorder","gnome-sound-recorder");
+  char * filename;
+  scanf("%s",filename);*/
   // LEARNING
   char * datas[]      = {"1","2","3","4","5","6","7"};
-  char * vocabulary[] = {"OUI","NON","OUVRIR"};
+  char * vocabulary[] = {"OUI","NON","OUVRIR","LIST"};
 
   double **** mfccs   = new_NArr(sizeof(double***),VOC_LEN);
   for (int i=0; i < VOC_LEN; i++) {
@@ -58,7 +60,10 @@ int main (int argc, char * argv[]) {
   printf("\n\n");
   printf("Computing for %s...\n", argv[1]);
   double ** mfcc_file = do_mfcc(argv[1]);
-
+  
+  /*printf("Computing for %s...\n", filename);
+  double ** mfcc_file = do_mfcc(filename);*/
+  
   printf("\n\n-------------------------------------------------\n\n");
 
   printf("Comparing input with dictionary ....\n\n");
@@ -77,8 +82,15 @@ int main (int argc, char * argv[]) {
   for (int i = 1; i < VOC_LEN; i++) {
     if (result[i] < result[min]) min = i;
   }
-
+  //execlp(vocabulary[min],vocabulary[min],NULL);
   printf("\n\n ====> %s <==== \n\n", vocabulary[min]);
-
+  if(min == 2)
+  {
+    execlp("cat","cat","README.md");
+  }
+  if(min == 3)
+  {
+    execlp("ls","ls");
+  }
   return 0;
 }
