@@ -1,19 +1,18 @@
-#Makefile
+CC=gcc -rdynamic
 
-CC=gcc 
-
-CPPFLAGS = `pkg-config gtk+-3.0 --cflags sdl` -MMD
+CPPFLAGS =  `pkg-config gtk+-3.0 --cflags sdl` -MMD
 CFLAGS = -Wall -Wextra -std=c99 -g
-
-#CFLAGS = -W -Wall -Wextra -Wunreachable-code -Wwrite-strings -Wstrict-prototypes -std=c99 -O2
 LDFLAGS =
 LDLIBS= `pkg-config gtk+-3.0 --libs sdl` -lSDL_image -lm
 
-all: main
+SRC = gtk.c\
 
-main: main.o
+OBJ= $(SRC:.c=.o)
+DEP= $(SRC:.c=.d)
+
+all: gtk
+
+main: $(OBJ)
 
 clean:
-	${RM} main
-
-# END
+		$(RM) $(OBJ) $(OBJ_TESTS) $(DEP) $(DEP_TESTS) gtk && clear
