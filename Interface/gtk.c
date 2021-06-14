@@ -86,7 +86,8 @@ void exec(GtkButton *button)
     //system("vim text.txt");
     //fopen("text.txt","w");
 
-    system("./recognize str");
+    sprintf(str, "./recognize %s",filename);
+    system(str);
     UNUSED(button);
 }
 
@@ -101,6 +102,6 @@ int main(int argc, char *argv[])
     printf("#-----------------#\n");
     //Create GTK window
     create_window(argc,argv);
-    system("rm -r letters");
+    //system("rm -r letters");
     return(EXIT_SUCCESS);
 }
