@@ -80,11 +80,13 @@ void exec(GtkButton *button)
 {
     char str[80];
     //a changer
-    sprintf(str, "../decoupage/./decoupage %s", filename);
-    system(str);
-    system("../NeuralNetwork/./nn");
+    //sprintf(str, "../decoupage/./decoupage %s", filename);
+    //system(str);
+    //system("../NeuralNetwork/./nn");
     //system("vim text.txt");
     //fopen("text.txt","w");
+
+    system("./recognize str");
     UNUSED(button);
 }
 
