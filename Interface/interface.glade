@@ -37,7 +37,7 @@
                 <property name="can_focus">False</property>
                 <property name="margin_left">8</property>
                 <property name="margin_right">5</property>
-                <property name="label" translatable="yes">Optical Character Recognition</property>
+                <property name="label" translatable="yes">Speech Recognition</property>
                 <attributes>
                   <attribute name="weight" value="heavy"/>
                   <attribute name="underline" value="True"/>
@@ -108,7 +108,6 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="load_img">
-                    <property name="label" translatable="yes">Load Image</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -187,7 +186,7 @@
               <object class="GtkLabel" id="txt">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Your text will be load in a .txt file</property>
+                <property name="label" translatable="yes">Choose your WAV file and then click on Apply</property>
               </object>
               <packing>
                 <property name="expand">False</property>

@@ -10,7 +10,7 @@
 #include "dtw.h"
 
 #define DATAS_LEN 7
-#define VOC_LEN   4
+#define VOC_LEN   5
 
 double ** do_mfcc (char * file_str) {
   SF_INFO file_info;
@@ -35,7 +35,7 @@ int main (int argc, char * argv[]) {
   scanf("%s",filename);*/
   // LEARNING
   char * datas[]      = {"1","2","3","4","5","6","7"};
-  char * vocabulary[] = {"OUI","NON","OUVRIR","LIST"};
+  char * vocabulary[] = {"ENTER","CREATE","OUVRIR","LIST","REMOVE"};
 
   double **** mfccs   = new_NArr(sizeof(double***),VOC_LEN);
   for (int i=0; i < VOC_LEN; i++) {
@@ -86,11 +86,37 @@ int main (int argc, char * argv[]) {
   printf("\n\n ====> %s <==== \n\n", vocabulary[min]);
   if(min == 2)
   {
-    execlp("cat","cat","README.md");
+    execlp("cat","cat","../README.md");
   }
   if(min == 3)
   {
     execlp("ls","ls");
+  }
+  if(min == 0)
+  {
+      char s[30];
+      char str[30];
+      scanf("%s",s);
+      sprintf(str,"cd %s",s);
+      system(str);
+  }
+  if(min ==1)
+  {
+      char s[30];
+      char str[30];
+      scanf("%s",s);
+      sprintf(str,"mkdir %s",s);
+      //printf("%s",str);
+      system(str);
+  }
+  if(min ==4)
+  {
+      char s[30];
+      char str[30];
+      scanf("%s",s);
+      sprintf(str,"rm %s",s);
+      //printf("%s",str);
+      system(str);
   }
   return 0;
 }

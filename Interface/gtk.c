@@ -64,7 +64,7 @@ void create_window(int argc, char *argv[])
     //Connect signals
     gtk_builder_connect_signals(data.builder, &data);
 
-    gtk_window_set_title(GTK_WINDOW(window), "Ocr Project");
+    gtk_window_set_title(GTK_WINDOW(window), "Speech Recognition Project");
     gtk_widget_show_all(window);
     gtk_main();
 }
@@ -85,7 +85,6 @@ void exec(GtkButton *button)
     //system("../NeuralNetwork/./nn");
     //system("vim text.txt");
     //fopen("text.txt","w");
-
     sprintf(str, "./recognize %s",filename);
     system(str);
     UNUSED(button);
@@ -96,11 +95,8 @@ void exec(GtkButton *button)
 
 int main(int argc, char *argv[])
 {
-
-    printf("#-----------------#\n");
-    printf("        Ocr\n");
-    printf("#-----------------#\n");
     //Create GTK window
+    system("audacity");
     create_window(argc,argv);
     //system("rm -r letters");
     return(EXIT_SUCCESS);

@@ -13,7 +13,9 @@ http://searchnkill.gozeco.fr/site%20hamza/index.html
 ### Usage:
 ```bash
 make
-./recognize
+cd Interface
+make
+./gtk
 ```
 
 ### Dependencies
