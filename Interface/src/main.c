@@ -35,7 +35,7 @@ int main (int argc, char * argv[]) {
   scanf("%s",filename);*/
   // LEARNING
   char * datas[]      = {"1","2","3","4","5","6","7"};
-  char * vocabulary[] = {"ENTER","CREATE","OUVRIR","LIST","REMOVE"};
+  char * vocabulary[] = {"ENTER","CREATE","OPEN","LIST","REMOVE"};
 
   double **** mfccs   = new_NArr(sizeof(double***),VOC_LEN);
   for (int i=0; i < VOC_LEN; i++) {
